@@ -302,6 +302,64 @@ opacity:1;
 transform:scale(1);
 }
 
+}/* Четвертый слайд */
+
+.love-photo{
+width:85%;
+max-width:380px;
+border-radius:25px;
+object-fit:contain;
+opacity:0;
+animation:lovePhotoShow 1.4s ease forwards;
+}
+
+
+.love-text{
+margin-top:35px;
+font-size:21px;
+line-height:1.6;
+opacity:0;
+animation:loveTextShow 1.4s ease forwards;
+animation-delay:.7s;
+}
+
+
+@keyframes lovePhotoShow{
+
+from{
+opacity:0;
+transform:scale(.95);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+
+@keyframes loveTextShow{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+@media(max-width:430px){
+
+.love-text{
+font-size:18px;
+}
+
 }</style>
 
 </head>
@@ -368,7 +426,6 @@ document.getElementById("slide3").style.display="flex";
 
 </script>
 
-</body>
 <!-- ТРЕТИЙ СЛАЙД -->
 
 <div class="slide" id="slide3">
@@ -402,4 +459,24 @@ document.getElementById("slide3").style.display="flex";
 </div>
 
 </div>
+<!-- ЧЕТВЕРТЫЙ СЛАЙД -->
+
+<div class="slide" id="slide4">
+
+<div class="page">
+
+<img class="love-photo" src="photo4.jpg.JPG">
+
+<div class="love-text">
+Я с уверенностью могу сказать, что люблю тебя всем сердцем,
+ты частичка меня.
+
+Твой голос, твой запах, твои привычки —
+я люблю тебя всего абсолютно и без исключений 🤍
+</div>
+
+</div>
+
+</div>
+</body>
 </html>
