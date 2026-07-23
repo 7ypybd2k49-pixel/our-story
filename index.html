@@ -175,7 +175,7 @@ font-size:19px;
 
 <div class="page">
 
-<video id="video" playsinline>
+<video id="video" playsinline controls>
 
 <source src="video.mp4.MP4" type="video/mp4">
 
@@ -197,6 +197,11 @@ function openVideo(){
 
 document.getElementById("slide1").style.display="none";
 document.getElementById("slide2").style.display="flex";
+
+let video = document.getElementById("video");
+
+video.currentTime = 0;
+video.play();
 
 }
 
