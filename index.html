@@ -71,17 +71,11 @@ transform:translate(180px,120px);
 }
 
 .hero{
-
-position:relative;
-
+position:absolute;
 z-index:2;
-
 text-align:center;
-
 max-width:700px;
-
 padding:40px;
-
 }
 
 .small{
@@ -162,9 +156,9 @@ color:#08131d;
     }
     to{
         opacity:1;
-        transform:translateY(0);
-    }
-.slide{
+        transform:translateY(
+
+          .slide{
 position:absolute;
 width:100%;
 height:100vh;
@@ -172,6 +166,8 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+opacity:0;
+pointer-events:none;
 }
 
 .second{
