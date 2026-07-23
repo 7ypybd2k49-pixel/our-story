@@ -80,18 +80,64 @@ transform:translateY(0);
 }
 
 
-</style>
+.slide{
+position:absolute;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+
+#slide2{
+display:none;
+}
+
+
+#slide2 video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+
+.text{
+position:absolute;
+bottom:80px;
+max-width:800px;
+padding:20px;
+font-size:32px;
+line-height:1.5;
+text-align:center;
+color:white;
+}</style>
 
 </head>
 
 
 <body>
 
-<div class="hero">
+<div class="slide" id="slide1">
 
 <p class="small">
 Для частички моей души
 </p>
+
+</div>
+
+
+<div class="slide" id="slide2">
+
+<video autoplay muted playsinline>
+<source src="video.mp4" type="video/mp4">
+</video>
+
+<div class="text">
+Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала,
+что ты станешь самым дорогим и близким человеком в моей жизни
+</div>
 
 </div>
 
