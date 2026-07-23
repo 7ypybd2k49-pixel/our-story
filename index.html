@@ -185,12 +185,32 @@ color:white;
 
 
 
-</style>
+button{
+margin-top:40px;
+padding:15px 35px;
+border-radius:50px;
+background:transparent;
+border:1px solid #d7c38b;
+color:white;
+font-size:18px;
+cursor:pointer;
+}</style>
 
 </head>
 
 
 
+<script>
+
+function nextSlide(){
+
+document.querySelector(".active").style.display="none";
+
+document.querySelector(".video-slide").style.display="flex";
+
+}
+
+</script>
 <body>
 
 
@@ -204,6 +224,9 @@ color:white;
 Для частички моей души
 
 </p>
+<button onclick="nextSlide()">
+Открыть нашу историю
+</button>
 
 
 </div>
