@@ -382,6 +382,72 @@ transition:.3s;
 
 .heart-button:hover{
 transform:scale(1.1);
+}/* Пятый слайд */
+
+.together-photo{
+
+width:90%;
+max-width:420px;
+max-height:60vh;
+object-fit:contain;
+border-radius:25px;
+
+opacity:0;
+animation:togetherPhoto 1.4s ease forwards;
+
+}
+
+
+.together-text{
+
+margin-top:35px;
+font-size:23px;
+line-height:1.6;
+font-weight:300;
+
+opacity:0;
+animation:togetherText 1.4s ease forwards;
+animation-delay:.7s;
+
+}
+
+
+@keyframes togetherPhoto{
+
+from{
+opacity:0;
+transform:scale(.95);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+
+@keyframes togetherText{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+@media(max-width:430px){
+
+.together-text{
+font-size:19px;
+}
+
 }</style>
 
 </head>
@@ -513,6 +579,27 @@ document.getElementById("slide3").style.display="flex";
 
 Твой голос, твой запах, твои привычки —
 я люблю тебя всего абсолютно и без исключений 🤍
+</div>
+
+</div>
+
+</div>
+<!-- ПЯТЫЙ СЛАЙД -->
+
+<div class="slide" id="slide5">
+
+<div class="page">
+
+<img class="together-photo" src="photo5.jpg.JPG">
+
+<div class="together-text">
+
+У нас не всегда всё идеально,
+<br>
+но мне нравится,
+<br>
+что это именно наша история 🤍
+
 </div>
 
 </div>
