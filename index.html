@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -17,128 +16,85 @@ box-sizing:border-box;
 }
 
 body{
-height:100vh;
-overflow:hidden;
-background:linear-gradient(180deg,#08131d,#0f2c28);
+margin:0;
+background:#08131d;
 font-family:Georgia,serif;
+overflow:hidden;
 color:white;
 }
 
-
-/* СЛАЙДЫ */
-
 .slide{
-position:absolute;
-top:0;
-left:0;
-width:100vw;
-height:100vh;
-display:flex;
+position:fixed;
+inset:0;
+display:none;
 justify-content:center;
 align-items:center;
-text-align:center;
+padding:20px;
+background:linear-gradient(180deg,#08131d,#0f2c28);
 }
-
-
-/* ПЕРВЫЙ СЛАЙД */
 
 #slide1{
 display:flex;
 }
 
-
-.content{
-padding:30px;
+.page{
+width:100%;
+max-width:430px;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
-
-.title{
-font-size:64px;
+h1{
+font-size:46px;
 font-weight:300;
 line-height:1.4;
+margin-bottom:45px;
 }
-
 
 button{
-margin-top:40px;
-padding:16px 40px;
-border-radius:50px;
-background:transparent;
-border:1px solid #d7c38b;
-color:white;
+padding:16px 34px;
 font-size:18px;
+border:none;
+border-radius:50px;
+background:#d7c38b;
+color:#08131d;
+cursor:pointer;
+transition:.3s;
 }
 
-
-/* ВТОРОЙ СЛАЙД */
-
-#slide2{
-display:none;
-background:black;
+button:hover{
+transform:scale(1.05);
 }
-
 
 video{
-position:absolute;
-top:0;
-left:0;
 width:100%;
-height:100%;
-object-fit:contain;
+border-radius:22px;
 background:black;
+box-shadow:0 10px 35px rgba(0,0,0,.35);
 }
-
 
 .text{
-position:absolute;
-bottom:60px;
-left:50%;
-transform:translateX(-50%);
-width:90%;
-max-width:800px;
-font-size:30px;
-line-height:1.5;
-z-index:2;
+margin-top:30px;
+font-size:22px;
+line-height:1.6;
 }
 
+@media(max-width:430px){
 
-/* ТЕЛЕФОН */
-@keyframes fadeUp{
-
-from{
-opacity:0;
-transform:translateY(40px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-#slide3 img{
-box-shadow:0 10px 35px rgba(0,0,0,.35);
-animation:fadeUp 1s ease;
-}
-
-#slide3 div{
-animation:fadeUp 1.2s ease;
-}
-@media(max-width:600px){
-
-.title{
+h1{
 font-size:34px;
 }
 
 .text{
-font-size:21px;
-bottom:35px;
+font-size:19px;
 }
 
 button{
 font-size:16px;
-padding:14px 30px;
 }
 
 }
@@ -147,129 +103,54 @@ padding:14px 30px;
 
 </head>
 
-
 <body>
-
-
-<!-- ПЕРВЫЙ СЛАЙД -->
 
 <div class="slide" id="slide1">
 
-<div class="content">
+<div class="page">
 
-<div class="title">
+<h1>
+Для частички<br>моей души
+</h1>
 
-Для частички<br>
-моей души
-
-</div>
-
-
-<button onclick="openSecond()">
-
+<button onclick="openVideo()">
 Открыть нашу историю
-
 </button>
 
-
 </div>
 
 </div>
-
-
-
-<!-- ВТОРОЙ СЛАЙД -->
 
 <div class="slide" id="slide2">
 
+<div class="page">
 
-<video controls playsinline>
+<video id="video" controls playsinline>
 
 <source src="video.mp4.MP4" type="video/mp4">
 
 </video>
 
-
 <div class="text">
 
-Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала, что ты станешь самым дорогим и близким человеком в моей жизни
+Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала, что ты станешь самым дорогим и близким человеком в моей жизни.
 
 </div>
 
-
 </div>
 
-
+</div>
 
 <script>
 
-function openSecond(){
+function openVideo(){
 
 document.getElementById("slide1").style.display="none";
-
 document.getElementById("slide2").style.display="flex";
 
 }
-const video = document.querySelector("video");
 
-video.onended = function(){
-
-document.getElementById("slide2").style.display="none";
-
-document.getElementById("slide3").style.display="flex";
-
-}
 </script>
 
-<!-- ТРЕТИЙ СЛАЙД -->
-
-<!-- ТРЕТИЙ СЛАЙД -->
-
-<div class="slide" id="slide3" style="display:none; flex-direction:column; background:#08131d; padding:30px;">
-
-<div style="width:90%; max-width:800px;">
-
-<img src="photo1.jpg.JPG"
-style="width:100%; border-radius:22px; margin-bottom:18px; display:block; border:3px solid rgba(255,255,255,.15);"
-
-<div style="display:flex; gap:18px;">
-
-<img src="photo2.jpg.JPG"
-style="width:50%; border-radius:22px; border:3px solid rgba(255,255,255,.15);">
-
-<img src="photo3.jpg.JPG"
-style="width:50%; border-radius:22px; border:3px solid rgba(255,255,255,.15);">
-
-</div>
-
-</div>
-
-<div style="margin-top:25px; display:flex; flex-direction:column; align-items:center;">
-
-<div style="
-font-size:34px;
-color:#d7c38b;
-margin-bottom:20px;
-animation:fadeUp 1.4s ease;
-">
-♡
-</div>
-
-<div style="
-max-width:800px;
-font-size:28px;
-line-height:1.7;
-padding:0 20px;
-text-align:center;
-animation:fadeUp 1.6s ease;
-">
-
-Наша история началась так удивительно, и я безумно рада, что она продолжается. Каждый день рядом с тобой становится ещё одним воспоминанием, которое я хочу бережно хранить в своём сердце. ❤️
-
-</div>
-
-</div>
-
-</div>
 </body>
 </html>
