@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,31 +15,50 @@ padding:0;
 box-sizing:border-box;
 }
 
+
 body{
+
 height:100vh;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 background:linear-gradient(180deg,#08131d,#0f2c28);
+
 font-family:Georgia,serif;
+
 color:white;
+
 overflow:hidden;
+
 }
+
 
 
 body::before{
+
 content:"";
+
 position:absolute;
+
 width:600px;
 height:600px;
+
 background:rgba(255,255,255,.05);
+
 filter:blur(120px);
+
 border-radius:50%;
+
 animation:move 8s ease-in-out infinite alternate;
+
 }
 
 
+
 @keyframes move{
+
 from{
 transform:translate(-150px,-120px);
 }
@@ -46,100 +66,173 @@ transform:translate(-150px,-120px);
 to{
 transform:translate(180px,120px);
 }
+
 }
 
-
-.hero{
-position:relative;
-z-index:2;
-text-align:center;
-padding:40px;
-}
-
-
-.small{
-font-size:64px;
-font-weight:300;
-letter-spacing:1px;
-color:white;
-line-height:1.4;
-animation:fade 2.5s ease;
-}
-
-
-@keyframes fade{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
 
 
 .slide{
+
 position:absolute;
+
+top:0;
+left:0;
+
 width:100%;
 height:100vh;
+
 display:flex;
+
 justify-content:center;
 align-items:center;
+
+text-align:center;
+
 }
 
 
-#slide2{
+
+.active{
+
+z-index:2;
+
+}
+
+
+
+.small{
+
+font-size:64px;
+
+font-weight:300;
+
+letter-spacing:1px;
+
+line-height:1.4;
+
+animation:fade 2.5s ease;
+
+}
+
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* ВТОРОЙ СЛАЙД С ВИДЕО */
+
+
+.video-slide{
+
 display:none;
+
 }
 
 
-#slide2 video{
+.video-slide video{
+
 position:absolute;
+
 width:100%;
+
 height:100%;
+
 object-fit:cover;
+
 }
+
 
 
 .text{
+
 position:absolute;
+
 bottom:80px;
+
 max-width:800px;
+
 padding:20px;
+
 font-size:32px;
+
 line-height:1.5;
+
 text-align:center;
+
 color:white;
-}</style>
+
+}
+
+
+
+</style>
 
 </head>
 
 
+
 <body>
 
-<div class="slide" id="slide1">
+
+<!-- ПЕРВЫЙ СЛАЙД -->
+
+<div class="slide active">
+
 
 <p class="small">
+
 Для частички моей души
+
 </p>
 
+
 </div>
 
 
-<div class="slide" id="slide2">
+
+
+<!-- ВТОРОЙ СЛАЙД -->
+
+<div class="slide video-slide">
+
 
 <video autoplay muted playsinline>
+
 <source src="video.mp4" type="video/mp4">
+
 </video>
 
+
 <div class="text">
+
 Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала,
 что ты станешь самым дорогим и близким человеком в моей жизни
-</div>
 
 </div>
+
+
+</div>
+
 
 
 </body>
