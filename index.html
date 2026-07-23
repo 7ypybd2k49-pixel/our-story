@@ -15,207 +15,79 @@ box-sizing:border-box;
 }
 
 body{
-
 height:100vh;
-
 display:flex;
-
 justify-content:center;
-
 align-items:center;
-
 background:linear-gradient(180deg,#08131d,#0f2c28);
-
 font-family:Georgia,serif;
-
 color:white;
-
 overflow:hidden;
-
 }
+
 
 body::before{
-
 content:"";
-
 position:absolute;
-
 width:600px;
-
 height:600px;
-
 background:rgba(255,255,255,.05);
-
 filter:blur(120px);
-
 border-radius:50%;
-
 animation:move 8s ease-in-out infinite alternate;
-
 }
 
+
 @keyframes move{
-
 from{
-
 transform:translate(-150px,-120px);
-
 }
 
 to{
-
 transform:translate(180px,120px);
-
+}
 }
 
-}
 
+.hero{
+position:relative;
+z-index:2;
+text-align:center;
+padding:40px;
+}
 
 
 .small{
-
 font-size:64px;
-
 font-weight:300;
-
 letter-spacing:1px;
-
-text-transform:none;
-
 color:white;
-
-text-align:center;
-
 line-height:1.4;
-
-margin:0;
-  animation: fade 2.5s ease;
-
+animation:fade 2.5s ease;
 }
 
-h1{
-
-font-size:72px;
-
-font-weight:400;
-
-margin-bottom:25px;
-
-}
-
-.subtitle{
-
-font-size:24px;
-
-line-height:1.8;
-
-opacity:.85;
-
-margin-bottom:55px;
-
-}
-
-button{
-
-padding:18px 45px;
-
-border-radius:50px;
-
-background:transparent;
-
-border:1px solid #d7c38b;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-transition:.4s;
-
-}
-
-button:hover{
-
-background:#d7c38b;
-
-color:#08131d;
-
-}
 
 @keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-
-.slide{
-position:fixed;
-top:0;
-left:0;
-width:100vw;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
+from{
 opacity:0;
-visibility:hidden;
-overflow:hidden;
+transform:translateY(30px);
 }
 
-
-.first{
+to{
 opacity:1;
-visibility:visible;
-z-index:2;
+transform:translateY(0);
+}
 }
 
 
-.second{
-z-index:1;
-}
-
-
-.first{
-opacity:1;
-pointer-events:auto;
-}
-
-
-.second video{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-
-.text{
-position:absolute;
-bottom:80px;
-max-width:800px;
-font-size:32px;
-line-height:1.5;
-color:white;
-padding:20px;
-}
-
-
-}
 </style>
 
 </head>
 
+
 <body>
 
-<div class="slide first">
+<div class="hero">
 
 <p class="small">
 Для частички моей души
@@ -223,19 +95,6 @@ padding:20px;
 
 </div>
 
-
-<div class="slide second">
-
-<video autoplay muted playsinline>
-<source src="video.mp4" type="video/mp4">
-</video>
-
-<div class="text">
-Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала,
-что ты станешь самым дорогим и близким человеком в моей жизни
-</div>
-
-</div>
 
 </body>
 
