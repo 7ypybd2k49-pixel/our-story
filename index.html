@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,14 +15,9 @@ padding:0;
 box-sizing:border-box;
 }
 
-
 body{
 
 height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
 
 background:linear-gradient(180deg,#08131d,#0f2c28);
 
@@ -36,41 +30,6 @@ overflow:hidden;
 }
 
 
-body::before{
-
-content:"";
-
-position:absolute;
-
-width:600px;
-height:600px;
-
-background:rgba(255,255,255,.05);
-
-filter:blur(120px);
-
-border-radius:50%;
-
-animation:move 8s ease-in-out infinite alternate;
-
-}
-
-
-
-@keyframes move{
-
-from{
-transform:translate(-150px,-120px);
-}
-
-to{
-transform:translate(180px,120px);
-}
-
-}
-
-
-
 .slide{
 
 position:absolute;
@@ -81,7 +40,7 @@ left:0;
 width:100vw;
 height:100vh;
 
-display:flex;
+display:none;
 
 justify-content:center;
 
@@ -89,35 +48,141 @@ align-items:center;
 
 text-align:center;
 
+padding:30px;
+
 }
 
 
 
-.first-content{
+.active{
 
 display:flex;
 
-flex-direction:column;
+}
 
-align-items:center;
+
+
+.content{
+
+max-width:900px;
+
+animation:fade 2s ease;
 
 }
 
 
 
-.small{
+.title{
 
 font-size:64px;
 
 font-weight:300;
 
-letter-spacing:1px;
-
 line-height:1.4;
 
-max-width:700px;
+}
 
-animation:fade 2.5s ease;
+
+
+.text{
+
+font-size:32px;
+
+line-height:1.6;
+
+max-width:850px;
+
+}
+
+
+
+button{
+
+margin-top:40px;
+
+padding:15px 35px;
+
+border-radius:50px;
+
+background:transparent;
+
+border:1px solid #d7c38b;
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+
+img{
+
+max-width:90%;
+
+max-height:70vh;
+
+object-fit:cover;
+
+}
+
+
+
+.video{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+z-index:1;
+
+}
+
+
+
+.overlay-text{
+
+position:absolute;
+
+z-index:2;
+
+bottom:60px;
+
+width:90%;
+
+font-size:32px;
+
+line-height:1.5;
+
+}
+
+
+
+.gallery{
+
+display:flex;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+
+
+.gallery img{
+
+width:30%;
+
+height:250px;
+
+border-radius:10px;
 
 }
 
@@ -145,106 +210,40 @@ transform:translateY(0);
 
 
 
-button{
-
-margin-top:35px;
-
-padding:15px 35px;
-
-border-radius:50px;
-
-background:transparent;
-
-border:1px solid #d7c38b;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-}
-
-
-
-.video-slide{
-
-display:none;
-
-}
-
-
-
-.video-slide video{
-
-position:absolute;
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-}
-
-
-
-.text{
-
-position:absolute;
-
-bottom:80px;
-
-max-width:800px;
-
-padding:20px;
-
-font-size:32px;
-
-line-height:1.5;
-
-}
-
-
-
 @media(max-width:600px){
 
+.title{
 
-.small{
-
-font-size:30px;
-
-line-height:1.5;
-
-max-width:85vw;
-
-}
-
-
-button{
-
-font-size:16px;
-
-padding:14px 30px;
-
-margin-top:25px;
+font-size:34px;
 
 }
 
 
 .text{
 
-font-size:22px;
-
-bottom:40px;
-
-padding:20px;
+font-size:21px;
 
 }
 
 
+.overlay-text{
+
+font-size:21px;
+
+bottom:35px;
+
 }
 
+
+.gallery img{
+
+width:45%;
+
+height:160px;
+
+}
+
+}
 
 
 </style>
@@ -255,25 +254,21 @@ padding:20px;
 <body>
 
 
+<!-- СЛАЙД 1 -->
 
-<!-- ПЕРВЫЙ СЛАЙД -->
+<div class="slide active" id="slide1">
 
-<div class="slide" id="first">
+<div class="content">
 
-
-<div class="first-content">
-
-
-<p class="small">
+<div class="title">
 
 Для частички<br>
 моей души
 
-</p>
+</div>
 
 
-
-<button onclick="nextSlide()">
+<button onclick="next(2)">
 
 Открыть нашу историю
 
@@ -282,26 +277,24 @@ padding:20px;
 
 </div>
 
-
 </div>
 
 
 
-
-<!-- ВТОРОЙ СЛАЙД -->
-
-<div class="slide video-slide" id="second">
+<!-- СЛАЙД 2 -->
 
 
-<video autoplay muted playsinline controls>
+<div class="slide" id="slide2">
+
+
+<video class="video" autoplay muted playsinline>
 
 <source src="video.mp4" type="video/mp4">
 
 </video>
 
 
-
-<div class="text">
+<div class="overlay-text">
 
 Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала,
 что ты станешь самым дорогим и близким человеком в моей жизни
@@ -313,23 +306,36 @@ padding:20px;
 
 
 
-
-<script>
-
-
-function nextSlide(){
-
-document.getElementById("first").style.display="none";
-
-document.getElementById("second").style.display="flex";
-
-}
+<!-- СЛАЙД 3 -->
 
 
-</script>
+<div class="slide" id="slide3">
 
 
+<div class="content">
 
-</body>
 
-</html>
+<div class="gallery">
+
+
+<img src="photo1.jpg">
+
+<img src="photo2.jpg">
+
+<img src="photo3.jpg">
+
+
+</div>
+
+
+<div class="text">
+
+Наша история началась так удивительно и я безумно рада что она продолжается
+
+</div>
+
+
+</div>
+
+
+</div>
