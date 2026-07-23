@@ -99,7 +99,58 @@ font-size:16px;
 
 }
 
-</style>
+.story-title{
+font-size:32px;
+line-height:1.4;
+font-weight:300;
+margin-bottom:35px;
+}
+
+.photo-grid{
+width:100%;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.photo-grid > img{
+width:75%;
+align-self:center;
+border-radius:22px;
+object-fit:cover;
+aspect-ratio:1/1;
+}
+
+.small-photos{
+display:flex;
+gap:15px;
+width:100%;
+}
+
+.small-photos img{
+width:50%;
+border-radius:22px;
+aspect-ratio:1/1;
+object-fit:cover;
+}
+
+.story-text{
+font-size:22px;
+line-height:1.5;
+margin-top:30px;
+}
+
+@media(max-width:430px){
+
+.story-title{
+font-size:26px;
+}
+
+.story-text{
+font-size:19px;
+}
+
+}</style>
 
 </head>
 
@@ -165,19 +216,31 @@ document.getElementById("slide3").style.display="flex";
 
 <div class="page">
 
-<img src="photo1.jpg.JPG" style="width:100%; border-radius:20px; margin-bottom:15px;">
+<div class="story-title">
+Наша история<br>
+началась так удивительно…
+</div>
 
-<div style="display:flex; gap:12px; width:100%; margin-bottom:20px;">
+<div class="photo-grid">
 
-<img src="photo2.jpg.JPG" style="width:50%; border-radius:20px;">
+<img src="photo1.jpg.JPG">
 
-<img src="photo3.jpg.JPG" style="width:50%; border-radius:20px;">
+<div class="small-photos">
+
+<img src="photo2.jpg.JPG">
+
+<img src="photo3.jpg.JPG">
 
 </div>
 
-<div class="text">
+</div>
 
-Наша история началась так удивительно, и я безумно рада, что она продолжается. ❤️
+<div class="story-text">
+И я безумно рада,<br>
+что она продолжается 🤍
+</div>
+
+</div>
 
 </div>
 
