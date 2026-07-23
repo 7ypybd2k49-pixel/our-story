@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -16,235 +17,109 @@ box-sizing:border-box;
 }
 
 body{
-
 height:100vh;
-
-background:linear-gradient(180deg,#08131d,#0f2c28);
-
-font-family:Georgia,serif;
-
-color:white;
-
 overflow:hidden;
-
+background:linear-gradient(180deg,#08131d,#0f2c28);
+font-family:Georgia,serif;
+color:white;
 }
 
+
+/* СЛАЙДЫ */
 
 .slide{
-
 position:absolute;
-
 top:0;
 left:0;
-
 width:100vw;
 height:100vh;
-
-display:none;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-padding:30px;
-
-}
-
-
-
-.active{
-
 display:flex;
-
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
+
+/* ПЕРВЫЙ СЛАЙД */
+
+#slide1{
+display:flex;
+}
 
 
 .content{
-
-max-width:900px;
-
-animation:fade 2s ease;
-
+padding:30px;
 }
-
 
 
 .title{
-
 font-size:64px;
-
 font-weight:300;
-
 line-height:1.4;
-
 }
-
-
-
-.text{
-
-font-size:32px;
-
-line-height:1.6;
-
-max-width:850px;
-
-}
-
 
 
 button{
-
 margin-top:40px;
-
-padding:15px 35px;
-
+padding:16px 40px;
 border-radius:50px;
-
 background:transparent;
-
 border:1px solid #d7c38b;
-
 color:white;
-
 font-size:18px;
-
 }
 
 
+/* ВТОРОЙ СЛАЙД */
 
-img{
-
-max-width:90%;
-
-max-height:70vh;
-
-object-fit:cover;
-
+#slide2{
+display:none;
+background:black;
 }
 
 
-
-.video{
-
+video{
 position:absolute;
-
+top:0;
+left:0;
 width:100%;
-
 height:100%;
-
 object-fit:cover;
-
-z-index:1;
-
 }
 
 
-
-.overlay-text{
-
+.text{
 position:absolute;
-
-z-index:2;
-
 bottom:60px;
-
+left:50%;
+transform:translateX(-50%);
 width:90%;
-
-font-size:32px;
-
+max-width:800px;
+font-size:30px;
 line-height:1.5;
-
+z-index:2;
 }
 
 
-
-.gallery{
-
-display:flex;
-
-gap:15px;
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-}
-
-
-
-.gallery img{
-
-width:30%;
-
-height:250px;
-
-border-radius:10px;
-
-}
-
-
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(30px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
+/* ТЕЛЕФОН */
 
 @media(max-width:600px){
 
 .title{
-
 font-size:34px;
-
 }
-
 
 .text{
-
 font-size:21px;
-
-}
-
-
-.overlay-text{
-
-font-size:21px;
-
 bottom:35px;
-
 }
 
-
-.gallery img{
-
-width:45%;
-
-height:160px;
-
+button{
+font-size:16px;
+padding:14px 30px;
 }
 
 }
-
 
 </style>
 
@@ -254,9 +129,9 @@ height:160px;
 <body>
 
 
-<!-- СЛАЙД 1 -->
+<!-- ПЕРВЫЙ СЛАЙД -->
 
-<div class="slide active" id="slide1">
+<div class="slide" id="slide1">
 
 <div class="content">
 
@@ -268,7 +143,7 @@ height:160px;
 </div>
 
 
-<button onclick="next(2)">
+<button onclick="openSecond()">
 
 Открыть нашу историю
 
@@ -281,56 +156,21 @@ height:160px;
 
 
 
-<!-- СЛАЙД 2 -->
-
+<!-- ВТОРОЙ СЛАЙД -->
 
 <div class="slide" id="slide2">
 
 
-<video class="video" autoplay muted playsinline>
+<video autoplay muted playsinline controls>
 
 <source src="video.mp4" type="video/mp4">
 
 </video>
 
 
-<div class="overlay-text">
-
-Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала,
-что ты станешь самым дорогим и близким человеком в моей жизни
-
-</div>
-
-
-</div>
-
-
-
-<!-- СЛАЙД 3 -->
-
-
-<div class="slide" id="slide3">
-
-
-<div class="content">
-
-
-<div class="gallery">
-
-
-<img src="photo1.jpg">
-
-<img src="photo2.jpg">
-
-<img src="photo3.jpg">
-
-
-</div>
-
-
 <div class="text">
 
-Наша история началась так удивительно и я безумно рада что она продолжается
+Тогда, 7 лет назад, сидя рядом с тобой, я ещё не знала, что ты станешь самым дорогим и близким человеком в моей жизни
 
 </div>
 
@@ -338,4 +178,19 @@ height:160px;
 </div>
 
 
-</div>
+
+<script>
+
+function openSecond(){
+
+document.getElementById("slide1").style.display="none";
+
+document.getElementById("slide2").style.display="flex";
+
+}
+
+</script>
+
+
+</body>
+</html>
