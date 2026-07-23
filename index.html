@@ -189,9 +189,37 @@ document.getElementById("slide1").style.display="none";
 document.getElementById("slide2").style.display="flex";
 
 }
+const video = document.querySelector("video");
 
+video.onended = function(){
+
+document.getElementById("slide2").style.display="none";
+
+document.getElementById("slide3").style.display="flex";
+
+}
 </script>
 
+<!-- ТРЕТИЙ СЛАЙД -->
 
+<div class="slide" id="slide3" style="display:none; flex-direction:column; background:#08131d;">
+
+<div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:40px;">
+
+<img src="photo1.jpg.JPG" style="width:28%; border-radius:15px;">
+
+<img src="photo2.jpg.JPG" style="width:28%; border-radius:15px;">
+
+<img src="photo3.jpg.JPG" style="width:28%; border-radius:15px;">
+
+</div>
+
+<div class="text" style="position:static; transform:none; max-width:800px;">
+
+Наша история началась так удивительно, и я безумно рада, что она продолжается ❤️
+
+</div>
+
+</div>
 </body>
 </html>
