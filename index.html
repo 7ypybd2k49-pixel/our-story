@@ -112,7 +112,89 @@ display:flex;
 flex-direction:column;
 gap:15px;
 }
+/* Анимация третьего слайда */
 
+#slide3 .page{
+animation:pageAppear 1.2s ease forwards;
+}
+
+
+#slide3 .story-title{
+opacity:0;
+animation:textAppear 1s ease forwards;
+animation-delay:.3s;
+}
+
+
+#slide3 .photo-grid > img{
+opacity:0;
+animation:photoAppear 1s ease forwards;
+animation-delay:.6s;
+}
+
+
+#slide3 .small-photos img:first-child{
+opacity:0;
+animation:photoAppear 1s ease forwards;
+animation-delay:.9s;
+}
+
+
+#slide3 .small-photos img:last-child{
+opacity:0;
+animation:photoAppear 1s ease forwards;
+animation-delay:1.2s;
+}
+
+
+#slide3 .story-text{
+opacity:0;
+animation:textAppear 1s ease forwards;
+animation-delay:1.5s;
+}
+
+
+@keyframes pageAppear{
+
+from{
+opacity:0;
+}
+
+to{
+opacity:1;
+}
+
+}
+
+
+@keyframes textAppear{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+@keyframes photoAppear{
+
+from{
+opacity:0;
+transform:scale(.96);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
 .photo-grid > img{
 width:75%;
 align-self:center;
