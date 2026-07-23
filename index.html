@@ -162,15 +162,30 @@ color:#08131d;
 
 
 .slide{
-position:absolute;
-width:100%;
+position:fixed;
+top:0;
+left:0;
+width:100vw;
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
 opacity:0;
-pointer-events:none;
+visibility:hidden;
+overflow:hidden;
+}
+
+
+.first{
+opacity:1;
+visibility:visible;
+z-index:2;
+}
+
+
+.second{
+z-index:1;
 }
 
 
