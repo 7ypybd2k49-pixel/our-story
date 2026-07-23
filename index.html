@@ -103,7 +103,28 @@ z-index:2;
 
 
 /* ТЕЛЕФОН */
+@keyframes fadeUp{
 
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+#slide3 img{
+box-shadow:0 10px 35px rgba(0,0,0,.35);
+animation:fadeUp 1s ease;
+}
+
+#slide3 div{
+animation:fadeUp 1.2s ease;
+}
 @media(max-width:600px){
 
 .title{
@@ -202,21 +223,50 @@ document.getElementById("slide3").style.display="flex";
 
 <!-- ТРЕТИЙ СЛАЙД -->
 
-<div class="slide" id="slide3" style="display:none; flex-direction:column; background:#08131d;">
+<!-- ТРЕТИЙ СЛАЙД -->
 
-<div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:center; margin-bottom:40px;">
+<div class="slide" id="slide3" style="display:none; flex-direction:column; background:#08131d; padding:30px;">
 
-<img src="photo1.jpg.JPG" style="width:28%; border-radius:15px;">
+<div style="width:90%; max-width:800px;">
 
-<img src="photo2.jpg.JPG" style="width:28%; border-radius:15px;">
+<img src="photo1.jpg.JPG"
+style="width:100%; border-radius:22px; margin-bottom:18px; display:block; border:3px solid rgba(255,255,255,.15);"
 
-<img src="photo3.jpg.JPG" style="width:28%; border-radius:15px;">
+<div style="display:flex; gap:18px;">
+
+<img src="photo2.jpg.JPG"
+style="width:50%; border-radius:22px; border:3px solid rgba(255,255,255,.15);"
+
+<img src="photo3.jpg.JPG"
+style="width:50%; border-radius:22px; border:3px solid rgba(255,255,255,.15);"
 
 </div>
 
-<div class="text" style="position:static; transform:none; max-width:800px;">
+</div>
 
-Наша история началась так удивительно, и я безумно рада, что она продолжается ❤️
+<div style="margin-top:25px; display:flex; flex-direction:column; align-items:center;">
+
+<div style="
+font-size:34px;
+color:#d7c38b;
+margin-bottom:20px;
+animation:fadeUp 1.4s ease;
+">
+♡
+</div>
+
+<div style="
+max-width:800px;
+font-size:28px;
+line-height:1.7;
+padding:0 20px;
+text-align:center;
+animation:fadeUp 1.6s ease;
+">
+
+Наша история началась так удивительно, и я безумно рада, что она продолжается. Каждый день рядом с тобой становится ещё одним воспоминанием, которое я хочу бережно хранить в своём сердце. ❤️
+
+</div>
 
 </div>
 
