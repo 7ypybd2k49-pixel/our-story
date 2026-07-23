@@ -32,7 +32,10 @@ align-items:center;
 padding:20px;
 background:linear-gradient(180deg,#08131d,#0f2c28);
 }
-
+#slide3,
+#slide4{
+transition:opacity .8s ease;
+}
 #slide1{
 display:flex;
 }
@@ -435,8 +438,19 @@ video.play();
 }
 function openSlide4(){
 
-document.getElementById("slide3").style.display="none";
-document.getElementById("slide4").style.display="flex";
+let slide3 = document.getElementById("slide3");
+let slide4 = document.getElementById("slide4");
+
+slide3.style.opacity="0";
+
+setTimeout(function(){
+
+slide3.style.display="none";
+slide4.style.display="flex";
+
+slide4.style.opacity="1";
+
+},800);
 
 }
 const video = document.getElementById("video");
