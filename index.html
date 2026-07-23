@@ -150,6 +150,77 @@ font-size:26px;
 font-size:19px;
 }
 
+}/* Плавное появление слайдов */
+
+.slide{
+opacity:0;
+transition:opacity 1.2s ease;
+}
+
+#slide1{
+opacity:1;
+}
+
+
+/* Появление текста */
+
+.story-title,
+.story-text,
+.text{
+animation:fadeUp 1.5s ease forwards;
+}
+
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(25px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+/* Появление фото */
+
+.photo-grid img{
+opacity:0;
+animation:photoShow 1.5s ease forwards;
+}
+
+
+.photo-grid img:nth-child(1){
+animation-delay:.3s;
+}
+
+
+.photo-grid img:nth-child(2){
+animation-delay:.6s;
+}
+
+
+.photo-grid img:nth-child(3){
+animation-delay:.9s;
+}
+
+
+@keyframes photoShow{
+
+from{
+opacity:0;
+transform:scale(.95);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
 }</style>
 
 </head>
