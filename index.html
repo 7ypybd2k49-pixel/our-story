@@ -490,7 +490,7 @@ font-size:21px;
 line-height:1.6;
 min-height:90px;
 padding:0 10px;
-animation:albumAppear .7s ease;
+transition: opacity .3s ease;
 }
 
 @keyframes albumAppear{
@@ -505,9 +505,10 @@ opacity:1;
 transform:translateY(0);
 }
 
-}.album-photo,
-.album-text {
-transition: opacity 0.8s ease;
+}
+
+.album-photo{
+transition:opacity .8s ease;
 }
 
 </style>
