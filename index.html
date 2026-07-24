@@ -681,6 +681,34 @@ document.getElementById("slide3").style.display="flex";
 
 }
 
+const albumItems = [
+
+{
+photo:"photo6.jpg.png",
+text:"Первые цветы, которые ты мне подарил... Я до сих пор помню, в каком восторге тогда была. 🤍"
+},
+
+{
+photo:"photo7.jpg.png",
+text:"Мы впервые вместе отметили твой день рождения. 🤍"
+}
+
+];
+let currentAlbum = 0;
+
+document.getElementById("nextAlbum").onclick = function(){
+
+currentAlbum++;
+
+if(currentAlbum>=albumItems.length){
+currentAlbum=0;
+}
+
+document.getElementById("albumPhoto").src = albumItems[currentAlbum].photo;
+document.getElementById("albumText").innerHTML = albumItems[currentAlbum].text;
+document.getElementById("albumCounter").innerHTML = "Страница " + (currentAlbum+1) + " из 13";
+
+}
 </script>
 
 <!-- ТРЕТИЙ СЛАЙД -->
@@ -788,7 +816,7 @@ document.getElementById("slide3").style.display="flex";
 </div>
 
 <div class="album-text" id="albumText">
-Тут будет первое воспоминание.
+Первые цветы которые ты мне подарил... Я до сих пор помню,в каком восторге тогда была
 </div>
 
 <button class="heart-button" id="nextAlbum">
