@@ -490,7 +490,6 @@ font-size:21px;
 line-height:1.6;
 min-height:90px;
 padding:0 10px;
-transition: opacity .3s ease;
 }
 
 @keyframes albumAppear{
@@ -719,7 +718,10 @@ setTimeout(function(){
 currentAlbum++;
 
 photo.src = albumItems[currentAlbum].photo;
-text.innerHTML = albumItems[currentAlbum].text;
+
+text.textContent = "";
+text.offsetHeight;
+text.textContent = albumItems[currentAlbum].text;
 
 document.getElementById("albumCounter").innerHTML =
 "Страница " + (currentAlbum + 6) + " из 13";
