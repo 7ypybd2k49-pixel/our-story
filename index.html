@@ -717,6 +717,13 @@ setTimeout(function(){
 
 currentAlbum++;
 
+photo.onload = function(){
+
+photo.style.opacity = "1";
+text.style.opacity = "1";
+
+};
+
 photo.src = albumItems[currentAlbum].photo;
 
 text.textContent = "";
@@ -725,9 +732,6 @@ text.textContent = albumItems[currentAlbum].text;
 
 document.getElementById("albumCounter").innerHTML =
 "Страница " + (currentAlbum + 6) + " из 13";
-
-photo.style.opacity = "1";
-text.style.opacity = "1";
 
 },300);
 
