@@ -689,13 +689,21 @@ document.getElementById("slide3").style.display="flex";
 const albumItems = [
 
 {
+type:"photo",
 photo:"photo6.jpg.png",
 text:"Первые цветы, которые ты мне подарил... Я до сих пор помню, в каком восторге тогда была. 🤍"
 },
 
 {
+type:"photo",
 photo:"photo7.jpg.png",
 text:"Мы впервые вместе отметили твой день рождения. 🤍"
+},
+
+{
+type:"video",
+video:"albumvideo.mp4",
+text:"Наши уютные дни дома… Хочется запомнить их навсегда. 🤍"
 }
 
 ];
@@ -717,21 +725,53 @@ setTimeout(function(){
 
 currentAlbum++;
 
-photo.onload = function(){
-
-photo.style.opacity = "1";
-text.style.opacity = "1";
-
-};
-
-photo.src = albumItems[currentAlbum].photo;
-
 text.textContent = "";
 text.offsetHeight;
 text.textContent = albumItems[currentAlbum].text;
 
 document.getElementById("albumCounter").innerHTML =
 "Страница " + (currentAlbum + 6) + " из 13";
+
+if(albumItems[currentAlbum].type=="photo"){
+
+document.getElementById("albumVideo").style.display="none";
+photo.style.display="block";
+
+photo.onload=function(){
+
+photo.style.visibility="visible";
+photo.style.opacity="1";
+text.style.opacity="1";
+
+};
+
+photo.src=albumItems[currentAlbum].photo;
+
+}
+
+if(albumItems[currentAlbum].type=="video"){
+
+photo.style.display="none";
+
+const video=document.getElementById("albumVideo");
+
+video.style.display="block";
+video.src=albumItems[currentAlbum].video;
+
+video.currentTime=0;
+video.play();
+
+text.style.opacity="1";
+
+video.onended=function(){
+
+currentAlbum++;
+
+button.onclick();
+
+};
+
+}
 
 },300);
 
@@ -839,9 +879,7 @@ document.getElementById("albumCounter").innerHTML =
 
 <img id="albumPhoto" class="album-photo" src="photo6.jpg.png">
 
-<video id="albumVideo" class="album-video" playsinline controls style="display:none;">
-<source src="albumvideo.mp4" type="video/mp4">
-</video>
+<video id="albumVideo" class="album-video" playsinline controls style="display:none;"></video>
 
 </div>
 
