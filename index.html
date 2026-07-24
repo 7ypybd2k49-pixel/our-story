@@ -717,11 +717,17 @@ text.style.opacity = "0";
 
 setTimeout(function(){
 
+text.innerHTML = "";
 photo.src = albumItems[currentAlbum].photo;
+
+setTimeout(function(){
+
 text.innerHTML = albumItems[currentAlbum].text;
 
 photo.style.opacity = "1";
 text.style.opacity = "1";
+
+},200);
 
 },800);
 
