@@ -448,6 +448,63 @@ transform:translateY(0);
 font-size:19px;
 }
 
+}/* ===== АЛЬБОМ ===== */
+
+.album-title{
+font-size:30px;
+font-weight:300;
+color:#d7c38b;
+margin-bottom:10px;
+}
+
+.album-counter{
+font-size:15px;
+color:#d7c38b;
+opacity:.8;
+margin-bottom:25px;
+}
+
+.album-content{
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:360px;
+}
+
+.album-photo,
+.album-video{
+width:90%;
+max-width:380px;
+max-height:58vh;
+border-radius:24px;
+object-fit:contain;
+box-shadow:0 10px 35px rgba(0,0,0,.35);
+background:#08131d;
+animation:albumAppear .7s ease;
+}
+
+.album-text{
+margin-top:28px;
+font-size:21px;
+line-height:1.6;
+min-height:90px;
+padding:0 10px;
+animation:albumAppear .7s ease;
+}
+
+@keyframes albumAppear{
+
+from{
+opacity:0;
+transform:translateY(15px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
 }</style>
 
 </head>
@@ -521,8 +578,8 @@ slide4.style.opacity="1";
 }
 function openSlide5(){
 
-let slide4 = document.getElementById("slide4");
-let slide5 = document.getElementById("slide5");
+let slide4=document.getElementById("slide4");
+let slide5=document.getElementById("slide5");
 
 slide4.style.opacity="0";
 
@@ -534,12 +591,22 @@ slide5.style.opacity="1";
 
 },800);
 
-}const video = document.getElementById("video");
+}
 
-video.onended = function(){
+function openSlide6(){
 
-document.getElementById("slide2").style.display="none";
-document.getElementById("slide3").style.display="flex";
+let slide5=document.getElementById("slide5");
+let slide6=document.getElementById("slide6");
+
+slide5.style.opacity="0";
+
+setTimeout(function(){
+
+slide5.style.display="none";
+slide6.style.display="flex";
+slide6.style.opacity="1";
+
+},800);
 
 }
 
@@ -618,6 +685,9 @@ document.getElementById("slide3").style.display="flex";
 что это именно наша история 🤍
 
 </div>
+<button class="heart-button" onclick="openSlide6()">
+♥
+</button>
 
 </div>
 
