@@ -505,7 +505,12 @@ opacity:1;
 transform:translateY(0);
 }
 
-}</style>
+}.album-photo,
+.album-text {
+transition: opacity 0.8s ease;
+}
+
+</style>
 
 </head>
 
@@ -704,9 +709,21 @@ button.onclick = function(){
 
 currentAlbum++;
 
-document.getElementById("albumPhoto").src = albumItems[currentAlbum].photo;
+const photo = document.getElementById("albumPhoto");
+const text = document.getElementById("albumText");
 
-document.getElementById("albumText").innerHTML = albumItems[currentAlbum].text;
+photo.style.opacity = "0";
+text.style.opacity = "0";
+
+setTimeout(function(){
+
+photo.src = albumItems[currentAlbum].photo;
+text.innerHTML = albumItems[currentAlbum].text;
+
+photo.style.opacity = "1";
+text.style.opacity = "1";
+
+},800);
 
 document.getElementById("albumCounter").innerHTML =
 "Страница " + (currentAlbum + 6) + " из 13";
