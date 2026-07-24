@@ -769,11 +769,29 @@ video.play();
 
 text.style.opacity="1";
 
-video.onended=function(){
+video.onended = function(){
 
 currentAlbum++;
 
-button.onclick();
+const next = albumItems[currentAlbum];
+
+const photo = document.getElementById("albumPhoto");
+const text = document.getElementById("albumText");
+const video = document.getElementById("albumVideo");
+
+video.style.display = "none";
+photo.style.display = "block";
+
+photo.src = next.photo;
+text.textContent = next.text;
+
+photo.onload = function(){
+photo.style.opacity = "1";
+text.style.opacity = "1";
+};
+
+document.getElementById("albumCounter").innerHTML =
+"Страница " + (currentAlbum + 6) + " из 13";
 
 };
 
