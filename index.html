@@ -694,27 +694,27 @@ text:"Мы впервые вместе отметили твой день рож
 }
 
 ];
-let currentAlbum = 5;
+let currentAlbum = 0;
 
-document.getElementById("nextAlbum").onclick = function(){
+document.addEventListener("DOMContentLoaded", function(){
+
+const button = document.getElementById("nextAlbum");
+
+button.onclick = function(){
 
 currentAlbum++;
 
-if(currentAlbum>=albumItems.length){
-currentAlbum=5;
-}
-
 document.getElementById("albumPhoto").src = albumItems[currentAlbum].photo;
+
 document.getElementById("albumText").innerHTML = albumItems[currentAlbum].text;
-document.getElementById("albumCounter").innerHTML = "Страница " + (currentAlbum+1) + " из 13";
 
-}
-id="k8w3pc"
-document.getElementById("nextAlbum").onclick = function(){
+document.getElementById("albumCounter").innerHTML =
+"Страница " + (currentAlbum + 6) + " из 13";
 
-alert("Кнопка работает");
+};
 
-}
+});
+
 </script>
 
 <!-- ТРЕТИЙ СЛАЙД -->
