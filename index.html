@@ -694,14 +694,14 @@ text:"Мы впервые вместе отметили твой день рож
 }
 
 ];
-let currentAlbum = 0;
+let currentAlbum = 5;
 
 document.getElementById("nextAlbum").onclick = function(){
 
 currentAlbum++;
 
 if(currentAlbum>=albumItems.length){
-currentAlbum=0;
+currentAlbum=5;
 }
 
 document.getElementById("albumPhoto").src = albumItems[currentAlbum].photo;
