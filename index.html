@@ -707,8 +707,6 @@ const button = document.getElementById("nextAlbum");
 
 button.onclick = function(){
 
-currentAlbum++;
-
 const photo = document.getElementById("albumPhoto");
 const text = document.getElementById("albumText");
 
@@ -717,24 +715,18 @@ text.style.opacity = "0";
 
 setTimeout(function(){
 
-text.innerHTML = "";
+currentAlbum++;
+
 photo.src = albumItems[currentAlbum].photo;
-
-setTimeout(function(){
-
 text.innerHTML = albumItems[currentAlbum].text;
-
-photo.style.opacity = "1";
-text.style.opacity = "1";
-
-},200);
-
-},800);
 
 document.getElementById("albumCounter").innerHTML =
 "Страница " + (currentAlbum + 6) + " из 13";
 
-};
+photo.style.opacity = "1";
+text.style.opacity = "1";
+
+},300);
 
 });
 
