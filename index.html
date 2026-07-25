@@ -837,14 +837,19 @@ setTimeout(function(){
 
 currentAlbum++;
 
-if(currentAlbum >= albumItems.length){
+if (currentAlbum >= albumItems.length) {
 
-document.querySelector(".slide").style.display = "none";
-document.getElementById("finalMessage").style.display = "flex";
+    document.querySelector(".album-title").style.display = "none";
+    document.getElementById("albumCounter").style.display = "none";
+    document.querySelector(".album-content").style.display = "none";
+    document.getElementById("albumText").style.display = "none";
+    document.getElementById("nextAlbum").style.display = "none";
 
-return;
+    document.getElementById("finalMessage").style.display = "flex";
 
+    return;
 }
+
 
 text.textContent = "";
 text.offsetHeight;
