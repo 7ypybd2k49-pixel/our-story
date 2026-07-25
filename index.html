@@ -510,6 +510,49 @@ transform:translateY(0);
 transition:opacity 1.2s ease;
 }
 
+#finalMessage{
+    min-height:100vh;
+    background:#f8f5ef;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+}
+
+.finalPhoto{
+    width:230px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    align-self:flex-start;
+    margin-bottom:35px;
+}
+
+.finalText{
+    max-width:700px;
+    font-size:30px;
+    line-height:1.8;
+    color:#555;
+    text-align:left;
+}
+
+.restartBtn{
+    margin-top:50px;
+    padding:18px 45px;
+    border:none;
+    border-radius:50px;
+    background:#d8c4b4;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.restartBtn:hover{
+    transform:scale(1.05);
+    background:#c7af9d;
+}
+
 </style>
 
 </head>
@@ -794,6 +837,15 @@ setTimeout(function(){
 
 currentAlbum++;
 
+if(currentAlbum >= albumItems.length){
+
+document.querySelector(".slide").style.display = "none";
+document.getElementById("finalMessage").style.display = "flex";
+
+return;
+
+}
+
 text.textContent = "";
 text.offsetHeight;
 text.textContent = albumItems[currentAlbum].text;
@@ -836,6 +888,15 @@ video.onended = function(){
 
 currentAlbum++;
 
+if(currentAlbum >= albumItems.length){
+
+document.querySelector(".slide").style.display = "none";
+document.getElementById("finalMessage").style.display = "flex";
+
+return;
+
+}
+
 const next = albumItems[currentAlbum];
 
 const photo = document.getElementById("albumPhoto");
@@ -849,12 +910,14 @@ photo.src = next.photo;
 text.textContent = next.text;
 
 photo.onload = function(){
+
 photo.style.opacity = "1";
 text.style.opacity = "1";
+
 };
 
 document.getElementById("albumCounter").innerHTML =
-"Страница " + (currentAlbum + 6) + " из 13";
+"Страница " + (currentAlbum + 1) + " из " + albumItems.length;
 
 };
 
@@ -981,5 +1044,21 @@ document.getElementById("albumCounter").innerHTML =
 </div>
 
 </div>
+<section id="finalMessage" style="display:none;">
+
+    <img src="photo18.jpg.JPG" class="finalPhoto">
+
+    <div class="finalText">
+        Мне хотелось собрать тут наши маленькие воспоминания
+        и оставить их в твоем сердце навсегда.
+        <br><br>
+        Но мне еще есть что сказать тебе... 🤍
+    </div>
+
+    <button class="restartBtn" onclick="location.reload()">
+        Начать сначала
+    </button>
+
+</section>
 </body>
 </html>
