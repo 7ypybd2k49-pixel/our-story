@@ -511,46 +511,57 @@ transition:opacity 1.2s ease;
 }
 
 #finalMessage{
-    min-height:100vh;
-    background:#f8f5ef;
+    position:fixed;
+    inset:0;
+    width:100%;
+    min-height:100dvh;
+    background:linear-gradient(180deg,#08131d,#0f2c28);
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:40px;
+    padding:clamp(20px,5vh,50px) 24px;
+    opacity:0;
+    transition:opacity 1.2s ease;
+    overflow:hidden;
+}
+
+#finalMessage.show{
+    opacity:1;
 }
 
 .finalPhoto{
-    width:230px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-    align-self:flex-start;
-    margin-bottom:35px;
+    width:min(330px,72vw);
+    max-height:42vh;
+    object-fit:contain;
+    border-radius:22px;
+    box-shadow:0 10px 35px rgba(0,0,0,.35);
+    margin-bottom:clamp(20px,3vh,32px);
 }
 
 .finalText{
-    max-width:700px;
-    font-size:30px;
-    line-height:1.8;
-    color:#555;
-    text-align:left;
+    width:100%;
+    max-width:650px;
+    font-size:clamp(18px,2.5vw,25px);
+    line-height:1.6;
+    color:white;
+    text-align:center;
 }
 
 .restartBtn{
-    margin-top:50px;
-    padding:18px 45px;
+    margin-top:clamp(22px,4vh,35px);
+    padding:15px 32px;
     border:none;
     border-radius:50px;
-    background:#d8c4b4;
-    color:white;
-    font-size:22px;
+    background:#d7c38b;
+    color:#08131d;
+    font-size:clamp(16px,2.2vw,20px);
     cursor:pointer;
     transition:.3s;
 }
 
 .restartBtn:hover{
     transform:scale(1.05);
-    background:#c7af9d;
 }
 
 </style>
@@ -842,6 +853,10 @@ if (currentAlbum >= albumItems.length) {
     document.getElementById("slide6").style.display = "none";
     document.getElementById("finalMessage").style.display = "flex";
 
+setTimeout(function(){
+    document.getElementById("finalMessage").classList.add("show");
+},50);
+
     return;
 }
 
@@ -892,6 +907,10 @@ if (currentAlbum >= albumItems.length) {
 
     document.getElementById("slide6").style.display = "none";
     document.getElementById("finalMessage").style.display = "flex";
+
+setTimeout(function(){
+    document.getElementById("finalMessage").classList.add("show");
+},50);
 
     return;
 }
