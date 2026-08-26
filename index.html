@@ -564,6 +564,27 @@ transition:opacity 1.2s ease;
     transform:scale(1.05);
 }
 
+.album-photo.album-enter{
+    opacity:0;
+    transform:scale(.95);
+}
+
+.album-photo.album-enter-active{
+    opacity:1;
+    transform:scale(1);
+    transition:opacity 1.5s ease, transform 1.5s ease;
+}
+
+.album-text.album-enter{
+    opacity:0;
+    transform:translateY(25px);
+}
+
+.album-text.album-enter-active{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity 1.5s ease, transform 1.5s ease;
+}
 </style>
 
 </head>
@@ -896,8 +917,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
                     requestAnimationFrame(function(){
 
-                        photo.style.opacity = "1";
-                        text.style.opacity = "1";
+                        photo.classList.remove("album-enter-active");
+text.classList.remove("album-enter-active");
+
+photo.classList.add("album-enter");
+text.classList.add("album-enter");
+
+void photo.offsetWidth;
+void text.offsetWidth;
+
+photo.classList.add("album-enter-active");
+text.classList.add("album-enter-active");
+                    
 
                         isChanging = false;
 
