@@ -839,7 +839,7 @@ currentAlbum++;
 
 if (currentAlbum >= albumItems.length) {
 
-    document.querySelector(".slide6").style.display = "none";
+    document.getElementById("slide6").style.display = "none";
     document.getElementById("finalMessage").style.display = "flex";
 
     return;
@@ -888,13 +888,12 @@ video.onended = function(){
 
 currentAlbum++;
 
-if(currentAlbum >= albumItems.length){
+if (currentAlbum >= albumItems.length) {
 
-document.querySelector(".slide6").style.display = "none";
-document.getElementById("finalMessage").style.display = "flex";
+    document.getElementById("slide6").style.display = "none";
+    document.getElementById("finalMessage").style.display = "flex";
 
-return;
-
+    return;
 }
 
 const next = albumItems[currentAlbum];
