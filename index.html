@@ -834,116 +834,110 @@ let currentAlbum = 0;
 
 document.addEventListener("DOMContentLoaded", function(){
 
-const button = document.getElementById("nextAlbum");
+    const button = document.getElementById("nextAlbum");
+    const photo = document.getElementById("albumPhoto");
+    const text = document.getElementById("albumText");
+    const video = document.getElementById("albumVideo");
 
-button.onclick = function(){
+    let isChanging = false;
 
-const photo = document.getElementById("albumPhoto");
-const text = document.getElementById("albumText");
+    button.onclick = function(){
 
-photo.style.opacity = "0";
-text.style.opacity = "0";
+        if(isChanging) return;
 
-setTimeout(function(){
+        isChanging = true;
 
-currentAlbum++;
+        photo.style.opacity = "0";
+        text.style.opacity = "0";
+        video.style.opacity = "0";
 
-if (currentAlbum >= albumItems.length) {
+        setTimeout(function(){
 
-    document.getElementById("slide6").style.display = "none";
-    document.getElementById("finalMessage").style.display = "flex";
+            currentAlbum++;
 
-setTimeout(function(){
-    document.getElementById("finalMessage").classList.add("show");
-},50);
+            /* ПЕРЕХОД НА ФИНАЛЬНЫЙ СЛАЙД */
 
-    return;
-}
+            if(currentAlbum >= albumItems.length){
+
+                document.getElementById("slide6").style.display = "none";
+
+                const finalMessage =
+                    document.getElementById("finalMessage");
+
+                finalMessage.style.display = "flex";
+
+                setTimeout(function(){
+                    finalMessage.classList.add("show");
+                },50);
+
+                return;
+            }
+
+            const next = albumItems[currentAlbum];
+
+            text.textContent = next.text;
+
+            document.getElementById("albumCounter").innerHTML =
+                "Страница " + (currentAlbum + 1) +
+                " из " + albumItems.length;
 
 
-text.textContent = "";
-text.offsetHeight;
-text.textContent = albumItems[currentAlbum].text;
+            /* ЕСЛИ ЭТО ФОТО */
 
-document.getElementById("albumCounter").innerHTML =
-"Страница " + (currentAlbum + 1) + " из " + albumItems.length;
+            if(next.type === "photo"){
 
-if(albumItems[currentAlbum].type=="photo"){
+                video.pause();
+                video.style.display = "none";
 
-document.getElementById("albumVideo").style.display="none";
-photo.style.display="block";
+                photo.style.display = "block";
+                photo.style.opacity = "0";
 
-photo.onload=function(){
+                photo.onload = function(){
 
-photo.style.visibility="visible";
-photo.style.opacity="1";
-text.style.opacity="1";
+                    requestAnimationFrame(function(){
 
-};
+                        photo.style.opacity = "1";
+                        text.style.opacity = "1";
 
-photo.src=albumItems[currentAlbum].photo;
+                        isChanging = false;
 
-}
+                    });
 
-if(albumItems[currentAlbum].type=="video"){
+                };
 
-photo.style.display="none";
+                photo.src = next.photo;
 
-const video=document.getElementById("albumVideo");
+            }
 
-video.style.display="block";
-video.src=albumItems[currentAlbum].video;
 
-video.currentTime=0;
-video.play();
+            /* ЕСЛИ ЭТО ВИДЕО */
 
-text.style.opacity="1";
+            if(next.type === "video"){
 
-video.onended = function(){
+                photo.style.display = "none";
 
-currentAlbum++;
+                video.style.display = "block";
+                video.style.opacity = "0";
 
-if (currentAlbum >= albumItems.length) {
+                video.src = next.video;
+                video.currentTime = 0;
 
-    document.getElementById("slide6").style.display = "none";
-    document.getElementById("finalMessage").style.display = "flex";
+                requestAnimationFrame(function(){
 
-setTimeout(function(){
-    document.getElementById("finalMessage").classList.add("show");
-},50);
+                    video.style.opacity = "1";
+                    text.style.opacity = "1";
 
-    return;
-}
+                    isChanging = false;
 
-const next = albumItems[currentAlbum];
+                });
 
-const photo = document.getElementById("albumPhoto");
-const text = document.getElementById("albumText");
-const video = document.getElementById("albumVideo");
+                video.play();
 
-video.style.display = "none";
-photo.style.display = "block";
+            }
 
-photo.src = next.photo;
-text.textContent = next.text;
+        },500);
 
-photo.onload = function(){
-
-photo.style.opacity = "1";
-text.style.opacity = "1";
-
-};
-
-document.getElementById("albumCounter").innerHTML =
-"Страница " + (currentAlbum + 1) + " из " + albumItems.length;
-
-};
-
-}
-
-},300);
-
-};
+    };
 
 });
 
